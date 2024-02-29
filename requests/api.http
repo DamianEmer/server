@@ -1,0 +1,13 @@
+### Consultar un usuario
+GET http://localhost:3000/users/U001
+
+### Crear un usuario
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "userId": "U002",
+    "name": "Rafael",
+    "area": "Chemistry Engineer",
+    "age": 22
+}
