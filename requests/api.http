@@ -1,5 +1,5 @@
 ### Consultar un usuario
-GET http://localhost:3000/users/U001
+GET http://localhost:3000/users/u001
 
 ### Crear un usuario
 POST http://localhost:3000/users
