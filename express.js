@@ -8,25 +8,31 @@ app.disable('x-powered-by')
 const PORT = process.env.PORT ?? '3000'
 
 // Creando un middleware
-app.use((req, res, next) => {
-  if (req.method !== 'POST') return next()
-  if (req.headers['content-type'] !== 'application/json') return next()
+// app.use((req, res, next) => {
+//   if (req.method !== 'POST') return next()
+//   if (req.headers['content-type'] !== 'application/json') return next()
 
-  let body = ''
+//   let body = ''
 
-  req.on('data', chunk => {
-    body += chunk.toString()
-  })
+//   req.on('data', chunk => {
+//     body += chunk.toString()
+//   })
 
-  req.on('end', () => {
-    const data = JSON.parse(body)
+//   req.on('end', () => {
+//     const data = JSON.parse(body)
 
-    data.timestamp = Date.now()
+//     data.timestamp = Date.now()
 
-    req.body = data
-    next()
-  })
-})
+//     req.body = data
+//     next()
+//   })
+// })
+
+/**
+ * Todo el código anterior es posible recortarlo en una sola linea
+ * dado que es la lógica que tiene por dentro
+*/
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.status(200).send('<h1>Hello express!!</h1>')
